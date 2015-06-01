@@ -5,7 +5,7 @@
   "AppIdentifier": "com.telerik.POCMobile",
   "DisplayName": "POC Mobile",
   "Author": "",
-  "Description": "",
+  "Description": "POC Mobile",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
