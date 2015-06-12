@@ -16,7 +16,7 @@
                 typeName: "Formulario"
             },
             serverPaging: true,
-            pageSize: 3
+            pageSize: 6
         });
 
         $('#button-log-out').click(function () {
@@ -67,16 +67,13 @@
                 var img;
                 var href;
                 var proposta = view[i].proposta;
-                if (i == 0) {
+                /*if (i == 0) {
                     img = "Check-Square-32.png";
                     href = "";
-                } else if (i % 2 == 0) {
-                    img = "Attention-32.png";
-                    href = "href='views/pendencia.html?proposta=" + proposta + "'";
-                } else {
+                } else if (i % 2 == 0) {*/
                     img = "Close-Delete-Alt-32.png";
                     href = "href='views/pendencia.html?proposta=" + proposta + "'";
-                }
+                /*}*/
 
                 var append = "<image style='float: left; width: 25px; height: auto;' src='img/32/" + img + "'><a " + href + " class='full-link'>Proposta: " + proposta + "</a>";
                 $("#pendencias-list").append("<li>" + append + "</li>");
