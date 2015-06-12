@@ -31,7 +31,8 @@
                     dac: $("#dac").val(),
                     percentual: $("#percentual").val(),
                     proposta: proposta,
-                    cpf: sessionStorage.getItem("cpf")
+                    cpf: sessionStorage.getItem("cpf"),
+                    temPendencia: Math.random()<.5
                 });
                 formDataSource.one("sync", this.close);
                 formDataSource.sync();

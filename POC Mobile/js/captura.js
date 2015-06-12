@@ -35,9 +35,38 @@
             $('#button-concluir').click(function () {
                 if (sessionStorage.getItem("isPendencia") == 1) {
 
-                    proposta = sessionStorage.getItem("proposta");
-                    var apiKey = "kSrpI2x2pp9EPl65";
-                    var el = new Everlive(apiKey);
+                    try {
+                        proposta = sessionStorage.getItem("proposta");
+                        var apiKey = "kSrpI2x2pp9EPl65";
+                        var el = new Everlive(apiKey);
+
+                        var dataSource = new kendo.data.DataSource({
+                            type: "everlive",
+                            transport: {
+                                typeName: "Formulario"
+                            },
+                            serverFiltering: true,
+                            filter: {
+                                logic: "and",
+                                filters: [{
+                                    field: "proposta",
+                                    operator: "eq",
+                                    value: proposta
+                    			}]
+                            }
+                        });
+
+                        dataSource.fetch(function () {
+                            var view = dataSource.at(0);;
+                            view.set("temPendencia", 0);
+                            dataSource.sync();
+                        });
+
+
+                    } catch (erro) {
+                        alert(erro);
+                    }
+
                     var storedImages = JSON.parse(sessionStorage["images"]);
 
                     var files = [];

@@ -15,6 +15,15 @@
             transport: {
                 typeName: "Formulario"
             },
+            serverFiltering: true,
+            filter: {
+                logic: "and",
+                filters: [{
+                    field: "temPendencia",
+                    operator: "eq",
+                    value: true
+                       }]
+            },
             serverPaging: true,
             pageSize: 6
         });
@@ -67,13 +76,9 @@
                 var img;
                 var href;
                 var proposta = view[i].proposta;
-                /*if (i == 0) {
-                    img = "Check-Square-32.png";
-                    href = "";
-                } else if (i % 2 == 0) {*/
-                    img = "Close-Delete-Alt-32.png";
-                    href = "href='views/pendencia.html?proposta=" + proposta + "'";
-                /*}*/
+
+                img = "Close-Delete-Alt-32.png";
+                href = "href='views/pendencia.html?proposta=" + proposta + "'";
 
                 var append = "<image style='float: left; width: 25px; height: auto;' src='img/32/" + img + "'><a " + href + " class='full-link'>Proposta: " + proposta + "</a>";
                 $("#pendencias-list").append("<li>" + append + "</li>");
