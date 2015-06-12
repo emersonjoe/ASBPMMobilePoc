@@ -67,14 +67,12 @@
                 var img;
                 var href;
                 var proposta = view[i].proposta;
-                
-                
-                if ((Number(view[i].proposta) % Number(2)) === Number(0)) {
+                if (i == 0) {
                     img = "Check-Square-32.png";
-                    href = "";                    
-                //} else if (i % 2 == 0) {
-                //    img = "Attention-32.png";
-                //    href = "href='views/pendencia.html?proposta=" + proposta + "'";
+                    href = "";
+                } else if (i % 2 == 0) {
+                    img = "Attention-32.png";
+                    href = "href='views/pendencia.html?proposta=" + proposta + "'";
                 } else {
                     img = "Close-Delete-Alt-32.png";
                     href = "href='views/pendencia.html?proposta=" + proposta + "'";

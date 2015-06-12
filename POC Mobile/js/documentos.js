@@ -29,7 +29,6 @@
         };
 
         document.addEventListener("deviceready", function () {
-            console.log("produto : " + getUrlVars()["produto"]);
             $("#headerSpan").text(getUrlVars()["produto"]);
             $("#proposta").val(getUrlVars()["proposta"]);
             $("#cpf").val(getUrlVars()["cpf"]);

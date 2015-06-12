@@ -9,7 +9,7 @@ body {
    position:relative !important;
 }
 .content {
-   padding-bottom:200px;   /* Height of the footer */
+   padding-bottom:360px;   /* Height of the footer */
 }
 .footer {
    position:absolute;
