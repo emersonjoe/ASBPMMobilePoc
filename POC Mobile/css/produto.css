@@ -1,0 +1,10 @@
+.content {
+    padding-bottom: 85px !important;  /*Height of the footer */
+}
+.footer {
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 85px !important;   /*Height of the footer */
+    color: #fff !important;
+}

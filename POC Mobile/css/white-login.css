@@ -1,6 +1,7 @@
 .km-android .km-widget {
-    color: #fff;
+    color: #000;
 }
+
 .km-android .transitions-button-login {
     color: #fff;
     display: block;
@@ -21,12 +22,12 @@
 }
 .km-root .transitions-button,
 .km-root .transitions-cancel {
-    color: #000;
+    color: #fff;
     display: block;
     text-align: center;
     margin: .6em .8em 0;
     font-size: 1.2em;
-    background-color: #fff;
+    background-color: #000;
     border: 0px;
 }
 .km-ios7 .transitions-button,
@@ -55,9 +56,9 @@
 .km-android input[type=email],
 .km-android input[type=text]:not(.k-input),
 .km-root .km-android textarea {
-    color: #fff;
-    background: #000;
-    outline-color: #000;
+    color: #000;
+    background: #fff;
+    outline-color: #fff;
 }
 #view-transitions,
 #view-transitions-welcome p {
@@ -76,7 +77,7 @@
 #view-transitions .km-content,
 #view-transitions-login .km-content,
 #view-transitions-welcome .km-content {
-    background: #0000000;
+    background: #fff;
 }
 .km-ios #view-transitions-welcome .km-button,
 .km-ios7 #view-transitions-welcome .km-content .km-button,
@@ -103,11 +104,11 @@
 .km-ios7 #view-transitions .km-button,
 .km-ios #view-transitions-login .transitions-cancel,
 .km-ios7 #view-transitions-login .transitions-cancel {
-    background-color: #000;
+    background-color: #fff;
 }
 .km-flat #view-transitions .km-button,
 .km-flat #view-transitions-login .km-content .transitions-cancel {
-    background-color: #000;
+    background-color: #fff;
     color: #fff;
 }
 .km-ios #view-transitions .km-navbar,
@@ -123,7 +124,7 @@ transitions .km-ios #view-transitions-welcome .km-navbar,
 .km-flat #view-transitions .km-navbar,
 .km-flat #view-transitions-login .km-navbar,
 .km-flat #view-transitions-welcome .km-navbar {
-    background-color: #000;
+    background-color: #fff;
     color: #fff;
 }
 .km-ios7 #view-transitions .km-navbar,

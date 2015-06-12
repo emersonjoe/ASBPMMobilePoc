@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <base href="http://demos.telerik.com/kendo-ui/application/transitions">
     <style>
         html {
             font-size: 12px;
@@ -17,20 +16,22 @@
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.mobile.all.min.css">
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css">
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.rtl.min.css">
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.default.min.css">
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.default.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.rtl.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.default.min.css" />
     <script src="http://cdn.kendostatic.com/2015.1.429/js/angular.min.js"></script>
     <script src="http://cdn.kendostatic.com/2015.1.429/js/jszip.min.js"></script>
-    <link rel="stylesheet" href="css/dark-login.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/dark-login.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/white-login.css">-->
 </head>
 
 <body>
     <div data-role="view" data-title="Camera App" id="view-transitions" data-persist="true">
-        <img src="../img/cordova.png" class="camera-image" />
-        <br />
+        <img src="img/logo.png" class="logo-image" />
         <a href="#view-transitions-login" data-role="button" class="transitions-button">Login/Sign-up</a>
+        <br/>
+        <input id="style" type="checkbox" data-role="switch" data-checked="false" data-change="switchChange" />
     </div>
     <div data-role="view" data-title="Login/Sign-up" id="view-transitions-login" data-transition="overlay:up" data-persist="true">
         <ul data-role="listview" data-style="inset">
@@ -50,10 +51,28 @@
         <a href="#view-transitions" data-transition="overlay:up reverse" data-role="button" class="transitions-cancel">Cancel</a>
     </div>
     <div data-role="view" data-title="Welcome" id="view-transitions-welcome" data-persist="true">
-        <img src="../content/mobile/modalview/lens.png" class="camera-image" />
+        <img src="img/logo.png" class="logo-image" />
         <br />
         <a data-role="button" href="#view-transitions" data-transition="slide:right" class="transitions-button-sign-out">Sign out</a>
     </div>
+    <script>
+        function changeCSS(checked) {
+            var cssFile = "css/dark-login.css";
+            if (checked) {
+                cssFile = "css/white-login.css";
+            }
+            var oldlink = document.getElementsByTagName("link").item(9);
+            var newlink = document.createElement("link");
+            newlink.setAttribute("rel", "stylesheet");
+            newlink.setAttribute("type", "text/css");
+            newlink.setAttribute("href", cssFile);
+            document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+        }
+
+        function switchChange(e) {
+            changeCSS(e.checked);
+        }
+    </script>
     <script>
         var app = new kendo.mobile.Application(document.body);
     </script>

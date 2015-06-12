@@ -1,0 +1,34 @@
+#fields {
+    padding: 20px 10px 0px 10px;
+    margin: .7em .8em 0;
+}
+#fields label,
+input,
+select {
+    display: block;
+    width: 100%;
+    margin: 5px 0px 5px 0px;
+}
+#fields input,
+select {
+    border: 1px solid #f47920;
+}
+.km-android input[type=password],
+.km-android input[type=search],
+.km-android input[type=number],
+.km-android input[type=tel],
+.km-android input[type=url],
+.km-android input[type=email],
+.km-android input[type=text]:not(.k-input),
+.km-android input[type=month],
+.km-android input[type=color],
+.km-android input[type=week],
+.km-android input[type=date],
+.km-android input[type=time],
+.km-android input[type=datetime],
+.km-android input[type=datetime-local],
+.km-android select:not([multiple]),
+.km-android .k-dropdown .k-dropdown-wrap .km-root .km-android textarea {
+    outline-style: none;
+    border: 1px solid #f47920;
+}

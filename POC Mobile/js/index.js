@@ -1,50 +1,90 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-        navigator.splashscreen.hide();
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+(function () {
+    var apiKey = "kSrpI2x2pp9EPl65";
+    var el = new Everlive(apiKey);
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
-    }
-};
+    document.addEventListener("deviceready", function () {
+
+        var app;
+        var formularioDataSource = new kendo.data.DataSource({
+            type: "everlive",
+            sort: {
+                field: "proposta",
+                dir: "asc"
+            },
+            transport: {
+                typeName: "Formulario"
+            },
+            serverPaging: true,
+            pageSize: 3
+        });
+
+        $('#button-log-out').click(function () {
+            // Prevent going to the login page until the login call processes.
+            event.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: 'http://api.everlive.com/v1/' + apiKey + '/oauth/logout',
+                headers: {
+                    "Authorization": "Bearer " + localStorage["login"]
+                },
+                success: function (data) {
+                    $("#username").val('');
+                    $("#password").val('');
+                    localStorage.clear();
+                    window.location.href = "#login";
+                },
+                error: function (error) {
+                    navigator.notification.alert("Ocorreu um erro ao fazer o log out." + JSON.stringify(erro));
+                }
+            });
+        });
+
+        $('#button-login').click(function () {
+            localStorage.clear();
+            if (localStorage["login"] == null) {
+                if ($("#username").val() === '') {
+                    navigator.notification.alert("Preencha o nome do usuário");
+                }
+                if ($("#password").val() === '') {
+                    navigator.notification.alert("Preencha a senha");
+                }
+                el.Users.login($("#username").val(), $("#password").val(),
+                    function (data) {
+                        localStorage["login"] = data.result.access_token;
+                        window.location.href = "#index";
+                    },
+                    function () {
+                        navigator.notification.alert("Usuário/senha inválido.");
+                    });
+            }
+        });
+
+        formularioDataSource.fetch(function () {
+            var view = formularioDataSource.view();
+            for (i = 0; i < view.length; i++) {
+
+                var img;
+                var href;
+                var proposta = view[i].proposta;
+                if (i == 0) {
+                    img = "Check-Square-32.png";
+                    href = "";
+                } else if (i % 2 == 0) {
+                    img = "Attention-32.png";
+                    href = "href='views/pendencia.html?proposta=" + proposta + "'";
+                } else {
+                    img = "Close-Delete-Alt-32.png";
+                    href = "href='views/pendencia.html?proposta=" + proposta + "'";
+                }
+
+                var append = "<image style='float: left; width: 25px; height: auto;' src='img/32/" + img + "'><a " + href + " class='full-link'>Proposta: " + proposta + "</a>";
+                $("#pendencias-list").append("<li>" + append + "</li>");
+            }
+        });
+
+        app = new kendo.mobile.Application(document.body);
+        window.app = app;
+
+    }, false);
+}());

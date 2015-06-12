@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="../kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <script src="../cordova.js"></script>
+    <script src="../kendo/js/jquery.min.js"></script>
+    <script src="../kendo/js/kendo.mobile.min.js"></script>
+    <script src="https://bs-static.cdn.telerik.com/1.2.5/everlive.all.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/formulario.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/produto.css">
+    <link rel="stylesheet" type="text/css" href="../css/fields.css">
+</head>
+
+<body>
+    <div data-role="view" id="index">
+        <div class="header">
+            <image src="../img/logo-itau.png"></image>
+            <span id="headerSpan">Formul&aacute;rio</span>
+        </div>
+        <div class="content">
+            <div id="fields">
+                <label for="tipo-favorecido">Tipo favorecido
+                    <select id="tipo-favorecido">
+                        <option value="1">Antigo propriet&aacute;rio</option>
+                        <option value="2">Boleto</option>
+                        <option value="3">Conta cadastrada</option>
+                        <option value="4">Financiado</option>
+                        <option value="5">Fornecedor do bem</option>
+                        <option value="6">Pagamento mais de um fornecedor</option>
+                    </select>
+                </label>
+                <label for="taxa">Taxa especial
+                    <select id="taxa">
+                        <option value="1">Sim</option>
+                        <option value="0">N&atilde;o</option>
+                    </select>
+                </label>
+                <label for="cartao">Optou pelo cart&atilde;o
+                    <select id="cartao">
+                        <option value="1">Sim</option>
+                        <option value="0">N&atilde;o</option>
+                    </select>
+                </label>
+                <label for="banco">Banco
+                    <input type="text" id="banco" />
+                </label>
+                <label for="agencia">Ag&ecirc;ncia
+                    <input type="text" id="agencia" />
+                </label>
+                <label for="conta">Conta
+                    <input type="text" id="conta" />
+                </label>
+                <label for="dac">DAC
+                    <input type="text" id="dac" />
+                </label>
+                <label for="percentual">Percentual
+                    <input type="text" id="percentual" />
+                </label>
+            </div>
+            <a href="#" id="button-concluir">Concluir</a>
+            <a href="#" id="button-cancelar">Cancelar</a>
+        </div>
+    </div>
+</body>
+
+</html>

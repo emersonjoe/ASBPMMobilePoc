@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="../kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <script src="../cordova.js"></script>
+    <script src="../kendo/js/jquery.min.js"></script>
+    <script src="../kendo/js/kendo.mobile.min.js"></script>
+    <script src="https://bs-static.cdn.telerik.com/1.2.5/everlive.all.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/produto.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/produto.css">
+    <link rel="stylesheet" type="text/css" href="../css/fields.css">
+</head>
+
+<body>
+    <div data-role="view" id="index">
+        <div id="container">
+            <div class="header">
+                <image src="../img/logo-itau.png"></image>
+                <span id="headerSpan"></span>
+            </div>
+            <div class="content">
+                <div id="fields">
+                    <label for="proposta">Proposta
+                        <input type="text" id="proposta" tabindex="0" required/>
+                    </label>
+                    <label for="cpf">CPF
+                        <input type="text" id="cpf" tabindex="1" required/>
+                    </label>
+                </div>
+            </div>
+            <div class="footer">
+                <a class="button-default" id="button-confirmar">Confirmar</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
