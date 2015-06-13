@@ -145,21 +145,6 @@ div.content-header {
 .content {
     display: table;
     width: 100%;
-    /* Firefox 
-    
-    height: -moz-calc(100% - 82px);
-    /* WebKit 
-    
-    height: -webkit-calc(100% - 82px);
-    /* Opera 
-    
-    height: -o-calc(100% - 82px);
-    /* Standard 
-    
-    height: calc(100% - 82px);
-    */
-    
-    min-height: 100%;
     position: relative;
 }
 .footer {

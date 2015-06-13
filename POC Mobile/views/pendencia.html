@@ -13,27 +13,25 @@
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link rel="stylesheet" type="text/css" href="../css/produto.css">
     <link rel="stylesheet" type="text/css" href="../css/fields.css">
+    <link rel="stylesheet" type="text/css" href="../css/button-circle.css">
 </head>
 
 <body>
     <div data-role="view" id="index">
-        <div class="header">
-            <image src="../img/logo-itau.png"></image>
-            <span id="headerSpan">Regularizar</span>
-        </div>
-        <div class="content">
-            <div id="fields">
-                <label for="proposta">Proposta
-                    <input type="text" id="proposta" tabindex="0" disabled/>
-                </label>
-                <label for="cpf">CPF
-                    <input type="text" id="cpf" tabindex="1" disabled/>
-                </label>
+        <div id="container">
+            <div class="header">
+                <image src="../img/logo-itau.png"></image>
+                <span id="headerSpan">Regularizar</span>
             </div>
-            <div>
-                <a id="button-capturar">Capturar</a>
-            </div>
-            <div class="footer">
+            <div class="content">
+                <div id="fields">
+                    <label for="proposta">Proposta
+                        <input type="text" id="proposta" tabindex="0" disabled/>
+                    </label>
+                    <label for="cpf">CPF
+                        <input type="text" id="cpf" tabindex="1" disabled/>
+                    </label>
+                </div>
                 <div class="content-header">
                     Pendências
                 </div>
@@ -43,6 +41,7 @@
                     </ul>
                 </div>
             </div>
+            <a id="button-capturar" class="circle" style="background-image: url('../img/32/camera-6-32.png')"></a>
         </div>
     </div>
 </body>
