@@ -69,6 +69,7 @@
             }
         });
 
+
         formularioDataSource.fetch(function () {
             var view = formularioDataSource.view();
             for (i = 0; i < view.length; i++) {
@@ -82,6 +83,38 @@
 
                 var append = "<image style='float: left; width: 25px; height: auto;' src='img/32/" + img + "'><a " + href + " class='full-link'>Proposta: " + proposta + "</a>";
                 $("#pendencias-list").append("<li>" + append + "</li>");
+            }
+        });
+
+        var propostasDataSource = new kendo.data.DataSource({
+            type: "everlive",
+            sort: {
+                field: "proposta",
+                dir: "asc"
+            },
+            transport: {
+                typeName: "Formulario"
+            }
+        });
+
+        propostasDataSource.fetch(function () {
+            var view = propostasDataSource.view();
+            for (i = 0; i < view.length; i++) {
+
+                var img;
+                var href;
+                var proposta = view[i].proposta;
+
+                if (view[i].temPendencia == 1) {
+                    img = "Close-Delete-Alt-32.png";
+                } else {
+                    img = "Check-Square-32.png";
+                }
+
+                //href = "href='views/pendencia.html?proposta=" + proposta + "'";
+
+                var append = "<image style='float: left; width: 25px; height: auto;' src='img/32/" + img + "'><span class='full-link'>Proposta: " + proposta + "</span>";
+                $("#propostas-list").append("<li>" + append + "</li>");
             }
         });
 

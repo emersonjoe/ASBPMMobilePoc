@@ -11,13 +11,21 @@
     <link rel="stylesheet" type="text/css" href="css/fields.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/button-circle.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <script src="js/menu.js"></script>
 </head>
 
 <body>
-    <div data-role="view" id="login" data-model="loginView">
+    <div data-role="drawer" id="drawer" style="width: 270px" data-views="['index', 'propostas']">
+        <h3>Menu</h3>
+        <a href="#index" data-target="index" class="drawer-link active">Pend&ecirc;ncias</a>
+        <a href="#propostas" data-target="propostas" class="drawer-link">Minhas propostas</a>
+        <a id="button-log-out" data-target="login" class="drawer-link">Sair</a>
+    </div>
+    <div data-role="view" id="login" data-model="loginView" class="inner-content">
         <div id="container">
             <div class="header">
-                <image src="img/logo-itau.png"></image>
+                <image class="logo-itau" src="img/logo-itau.png"></image>
                 <span>Login</span>
             </div>
             <div class="content">
@@ -38,15 +46,12 @@
             </div>
         </div>
     </div>
-    <div data-role="view" id="index">
+    <div data-role="view" id="index" class="inner-content">
         <div id="container">
             <div class="header">
-                <image src="img/logo-itau.png"></image>
+                <image id="drawer-trigger2" src="img/48/menu-48.png" style="padding-top: 12px; width: 29px; height: 29px;"></image>
+                <image class="logo-itau" src="img/logo-itau.png"></image>
                 <span>Painel</span>
-                <div id="button-log-out" class="log-out-div">
-                    <image src="img/32/Logout-32.png"></image>
-                    <span class="log-out-span">Sair</span>
-                </div>
             </div>
             <div class="content-header">
                 Pend&ecirc;ncias
@@ -54,10 +59,23 @@
             <div class="km-listview-wrapper">
                 <ul id="pendencias-list" class="km-widget km-listview km-list"></ul>
             </div>
-            <!--<a href="views/produtos.html">Capturar</a>-->
             <a href="views/produtos.html" class="circle" style="background-image: url('img/32/camera-6-32.png')"></a>
         </div>
     </div>
+    <div data-role="view" id="propostas" class="inner-content">
+        <div id="container">
+            <div class="header">
+                <image id="drawer-trigger" src="img/48/menu-48.png" style="padding-top: 12px; width: 29px; height: 29px;"></image>
+                <image class="logo-itau" src="img/logo-itau.png"></image>
+                <span>Painel</span>
+            </div>
+            <div class="content-header">
+                Minhas propostas
+            </div>
+            <div class="km-listview-wrapper">
+                <ul id="propostas-list" class="km-widget km-listview km-list"></ul>
+            </div>
+        </div>
     </div>
 </body>
 

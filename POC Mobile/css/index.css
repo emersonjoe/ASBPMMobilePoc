@@ -140,7 +140,7 @@ div.content-header {
     color: #373d45;
     position: absolute;
     top: 33%;
-    left: 45%;
+    left: 35%;
 }
 .content {
     display: table;
@@ -215,6 +215,10 @@ div.content-header {
     margin-top: 5px;
     float: right;
 }
+.logo-itau {
+    margin-right: 15px;
+    float: right;
+}
 .log-out-span {
     font-family: Arial, sans-serif !important;
     font-size: 10px !important;
@@ -223,17 +227,6 @@ div.content-header {
     display: block !important;
     top: 0px !important;
     left: 6px !important;
-}
-#circle {
-    width: 60px;
-    height: 60px;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
-    border-radius: 35px;
-    background-color: #f47920;
-    right: 10px;
-    bottom: 10px;
-    position: absolute;
 }
 /* Portrait layout (default) */
 
